@@ -6,11 +6,10 @@ def filter_fastq(seqs: dict[str, tuple[str, str]],
                  length_bounds: tuple[int, int] = (0, 2**32),
                  quality_threshold: int = 0) -> dict[str, tuple]:
 
-    if isinstance(gc_bounds, float):
-        gc_bounds = (0, gc_bounds)
-
-    if isinstance(length_bounds, int):
-        length_bounds = (0, length_bounds)
+    if not isinstance(gc_bounds, tuple):
+        gc_bounds = (0.0, float(gc_bounds))
+    if not isinstance(length_bounds, tuple):
+        length_bounds = (0, int(length_bounds))
 
     filtered_seqs = {}
 
