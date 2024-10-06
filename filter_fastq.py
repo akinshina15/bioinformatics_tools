@@ -14,7 +14,7 @@ def filter_fastq(seqs: dict[str, tuple[str, str]],
     filtered_seqs = {}
 
     for seq_id, (sequence, quality) in seqs.items():
-        length = len(sequence) 
+        length = len(sequence)
         gc = gc_content(sequence)
         avg_quality = calculate_average_quality(quality)
 
