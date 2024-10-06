@@ -13,13 +13,15 @@ def gc_content(sequence: str) -> float:
 
 
 def phred_to_ascii(phred_str: str) -> list:
-    """This function converts a string with encoded quality positions into a list of numbers
+    """This function converts a string with encoded quality positions
+    into a list of numbers
     """
     return [ord(char) - 33 for char in phred_str]
 
 
 def calculate_average_quality(enc_quality: str) -> float:
-    """" This function converts Phred quality score into ASCII format and returns its value 
+    """" This function converts Phred quality score into ASCII format
+    and returns its value
     """
     quality_scores = phred_to_ascii(enc_quality)
 
