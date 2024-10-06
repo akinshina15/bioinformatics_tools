@@ -28,7 +28,7 @@ def valid_dna(sequence):
 
 
 def apply_to_sequences(sequences, procedure):
-    return ''.join(procedure(seq) for seq in sequences) if sequences else ''
+    return [procedure(seq) for seq in sequences] if sequences else ''
 
 
 def transcribe(sequence):
