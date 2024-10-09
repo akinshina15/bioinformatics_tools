@@ -18,7 +18,7 @@ These tools in function `run_dna_rna_tools` will let you perform *in silico* con
 
 Run 
 ~~~
-dna_rna_tools.py
+python dna_rna_tools.py
 ~~~
 
 and enter you sequence, followed by one of the actions: `transcribe` , `reverse`, `complement` , `reverse_complement`
