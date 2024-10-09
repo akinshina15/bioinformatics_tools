@@ -5,7 +5,7 @@ Welcome! Here you will find a small set of tools for you **nucleic acid** sequen
 ### Download
 
 Run
-~~~
+~~~bash
 git clone https://github.com/akinshina15/bioinformatics_tools
 cd bioinformatics_tools
 ~~~
