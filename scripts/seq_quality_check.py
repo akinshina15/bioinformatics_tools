@@ -12,7 +12,7 @@ def gc_content(sequence: str) -> float:
     return (gc_count / gc_total) * 100
 
 
-def phred_to_ascii(phred_str: str) -> list:
+def ascii_to_phred(phred_str: str) -> list:
     """This function converts a string with encoded quality positions
     into a list of numbers
     """
