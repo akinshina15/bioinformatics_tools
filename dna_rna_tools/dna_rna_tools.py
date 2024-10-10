@@ -21,11 +21,7 @@ def valid_rna(sequence):
 
 
 def valid_dna(sequence):
-    if set(sequence).issubset({'A', 'T', 'G', 'C', 'a', 't', 'g', 'c'}):
-        return True
-    else:
-        return False
-
+    return set(sequence).issubset({'A', 'T', 'G', 'C', 'a', 't', 'g', 'c'}):
 
 def apply_to_sequences(sequences, procedure):
     return [procedure(seq) for seq in sequences] if sequences else ''
