@@ -1,6 +1,6 @@
 import os
 
-file_path = os.path.join(os.getcdw(), 'test.fastq')
+file_path = os.path.join(os.getcdw(), "test.fastq")
 
 
 def read_fastq_to_dict(file_path):
@@ -13,7 +13,7 @@ def read_fastq_to_dict(file_path):
     """
     fastq_dict = {}
 
-    with open(file_path, 'r') as file:
+    with open(file_path, "r") as file:
         while True:
             seq_id = file.readline().strip()
             if not seq_id:
@@ -33,15 +33,15 @@ def write_filtered_fastq(sequences, output_fastq):
     This function writes filtered FastQ sequences into a new FastQ file
     and creates a directory if it does not exist yet
     """
-    filtered_dir = 'filtered sequences'
+    filtered_dir = "filtered"
     if not os.path.exists(filtered_dir):
         os.makedirs(filtered_dir)
 
     output_file_path = os.path.join(filtered_dir, output_fastq)
 
-    with open(output_file_path, 'w') as fastq_file:
+    with open(output_file_path, "w") as fastq_file:
         for seq_id, (sequence, quality) in sequences.items():
-            fastq_file.write(f'@{seq_id}\n')
-            fastq_file.write(f'{sequence}\n')
-            fastq_file.write('+\n')
-            fastq_file.write(f'{quality}\n')
+            fastq_file.write(f"@{seq_id}\n")
+            fastq_file.write(f"{sequence}\n")
+            fastq_file.write("+\n")
+            fastq_file.write(f"{quality}\n")
