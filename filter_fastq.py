@@ -1,4 +1,14 @@
-from scripts.seq_quality_check import gc_content, calculate_average_quality
+from scripts.seq_quality_check import count_gc, calculate_average_quality
+from scripts.fastq_modules import read_fastq_to_dict
+
+"""
+This function will filter your sequences in a given FastQ file
+according to the settings provided.
+You may set the bounds for GC content, sequence length
+as well as the the quality threshold.
+"""
+
+seqs = read_fastq_to_dict()
 
 
 def filter_fastq(seqs: dict[str, tuple[str, str]],
@@ -15,7 +25,7 @@ def filter_fastq(seqs: dict[str, tuple[str, str]],
 
     for seq_id, (sequence, quality) in seqs.items():
         length = len(sequence)
-        gc = gc_content(sequence)
+        gc = count_gc(sequence)
         avg_quality = calculate_average_quality(quality)
 
         if (length_bounds[0] <= length <= length_bounds[1] and
