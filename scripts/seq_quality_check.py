@@ -20,7 +20,7 @@ def ascii_to_phred(phred_str: str) -> list:
 
 
 def calculate_average_quality(enc_quality: str) -> float:
-    """" This function converts Phred quality score into ASCII format
+    """ " This function converts Phred quality score into ASCII format
     and returns its value
     """
     quality_scores = ascii_to_phred(enc_quality)
