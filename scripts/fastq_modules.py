@@ -1,13 +1,13 @@
 import os
 
-wd = os.path.dirname('test.fastq')
-file_path = os.path.join(wd, 'test.fastq')
+file_path = os.path.join(os.getcdw(), 'test.fastq')
 
 
 def read_fastq_to_dict(file_path):
     """
     This function reads a FastQ file and converts it into a dictionary format
     where its key is a seq_id, and values are a tuple of sequence and quality.
+
     After running the output will be prepared for using with
     "filter_fastq.py" function
     """
