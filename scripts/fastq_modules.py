@@ -26,3 +26,22 @@ def read_fastq_to_dict(file_path):
         fastq_dict[seq_id] = [sequence, quality]
 
     return fastq_dict
+
+
+def write_filtered_fastq(sequences, output_fastq):
+    """
+    This function writes filtered FastQ sequences into a new FastQ file
+    and creates a directory if it does not exist yet
+    """
+    filtered_dir = 'filtered sequences'
+    if not os.path.exists(filtered_dir):
+        os.makedirs(filtered_dir)
+
+    output_file_path = os.path.join(filtered_dir, output_fastq)
+
+    with open(output_file_path, 'w') as fastq_file:
+        for seq_id, (sequence, quality) in sequences.items():
+            fastq_file.write(f'@{seq_id}\n')
+            fastq_file.write(f'{sequence}\n')
+            fastq_file.write('+\n')
+            fastq_file.write(f'{quality}\n')
