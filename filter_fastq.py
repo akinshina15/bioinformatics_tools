@@ -11,14 +11,16 @@ as well as the the quality threshold.
 """
 
 
-file_path = os.path.join(os.getcwd(), '*.fastq')
+file_path = os.path.join(os.getcwd(), "*.fastq")
 input_fastq = read_fastq_to_dict(file_path)
 
 
-def filter_fastq(input_fastq: dict[str, tuple[str, str]],
-                 gc_bounds: tuple[float, float] = (0, 100),
-                 length_bounds: tuple[int, int] = (0, 2**32),
-                 quality_threshold: int = 0) -> dict[str, tuple]:
+def filter_fastq(
+    input_fastq: dict[str, tuple[str, str]],
+    gc_bounds: tuple[float, float] = (0, 100),
+    length_bounds: tuple[int, int] = (0, 2**32),
+    quality_threshold: int = 0,
+) -> dict[str, tuple]:
 
     if not isinstance(gc_bounds, tuple):
         gc_bounds = (0.0, float(gc_bounds))
@@ -32,9 +34,11 @@ def filter_fastq(input_fastq: dict[str, tuple[str, str]],
         gc = count_gc(sequence)
         avg_quality = calculate_average_quality(quality)
 
-        if (length_bounds[0] <= length <= length_bounds[1] and
-                gc_bounds[0] <= gc <= gc_bounds[1] and
-                avg_quality >= quality_threshold):
+        if (
+            length_bounds[0] <= length <= length_bounds[1]
+            and gc_bounds[0] <= gc <= gc_bounds[1]
+            and avg_quality >= quality_threshold
+        ):
             output_fastq[seq_id] = (sequence, quality)
 
     return output_fastq
