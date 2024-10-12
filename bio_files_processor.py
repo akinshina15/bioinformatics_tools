@@ -1,5 +1,5 @@
 
-def convert_multiline_fasta_to_oneline(input_fasta, output_fasta=None):
+def convert_multiline_fasta_to_oneline(input_fasta: str, output_fasta=None) -> None:
     """
     Converts multiple-line FASTA file into single-line format and creates
     a new output file if no output file is given
@@ -22,7 +22,7 @@ def convert_multiline_fasta_to_oneline(input_fasta, output_fasta=None):
                 sequence += line
 
 
-def parse_blast_output(input_file, output_file):
+def parse_blast_output(input_file: str, output_file: str) -> None:
     """
     This function parses BLAST results from a BLAST search text file into
     a new file that contains only the top hit protein name results
@@ -30,9 +30,9 @@ def parse_blast_output(input_file, output_file):
     """
 
     with open(input_file, "r") as file, open(output_file, "w") as out_file:
-        values = set()
+        values: set[str] = set()
 
-        lines = file.readlines()
+        lines: list[str] = file.readlines()
         for i in range(len(lines)):
             line = lines[i].strip()
             if line.startswith("Sequences producing significant alignments:"):
@@ -40,12 +40,12 @@ def parse_blast_output(input_file, output_file):
             if line == "":
                 continue
             if "Description" in line:
-                next_line = lines[i + 1].strip()
-                parts = next_line.split()
-                protein = ' '.join(parts[:-10])
+                next_line: str = lines[i + 1].strip()
+                parts: list[str] = next_line.split()
+                protein: str = ' '.join(parts[:-10])
                 values.add(protein)
 
-        sorted_values = sorted(values)
+        sorted_values: list[str] = sorted(values)
 
         for value in sorted_values:
             out_file.write(value + "\n")
