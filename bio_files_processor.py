@@ -1,4 +1,3 @@
-
 def convert_multiline_fasta_to_oneline(input_fasta: str, output_fasta=None) -> None:
     """
     Converts multiple-line FASTA file into single-line format and creates
@@ -42,7 +41,7 @@ def parse_blast_output(input_file: str, output_file: str) -> None:
             if "Description" in line:
                 next_line: str = lines[i + 1].strip()
                 parts: list[str] = next_line.split()
-                protein: str = ' '.join(parts[:-10])
+                protein: str = " ".join(parts[:-10])
                 values.add(protein)
 
         sorted_values: list[str] = sorted(values)
