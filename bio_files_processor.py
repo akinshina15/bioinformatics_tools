@@ -1,9 +1,8 @@
-import os
-
 
 def convert_multiline_fasta_to_oneline(input_fasta, output_fasta=None):
     """
-    Converts multiple-line FASTA file into single-line format
+    Converts multiple-line FASTA file into single-line format and creates
+    a new output file if no output file is given
     """
     if output_fasta is None:
         output_fasta = input_fasta.rsplit(".", 1)[0] + "_one_line.fasta"
@@ -25,7 +24,9 @@ def convert_multiline_fasta_to_oneline(input_fasta, output_fasta=None):
 
 def parse_blast_output(input_file, output_file):
     """
-    
+    This function parses BLAST results from a BLAST search text file into
+    a new file that contains only the top hit protein name results
+    for each query in the original file.
     """
 
     with open(input_file, "r") as file, open(output_file, "w") as out_file:
