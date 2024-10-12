@@ -40,8 +40,10 @@ def write_filtered_fastq(sequences, output_fastq):
     output_file_path = os.path.join(filtered_dir, output_fastq)
 
     if os.path.exists(output_file_path):
-        confirm = input(f"File '{output_file_path}' already exists. Do you wish to re-write it? (y/n)")
-        if confirm.lower() != 'y':
+        confirm = input(
+            f"File '{output_file_path}' already exists. Do you wish to re-write it? (y/n)"
+        )
+        if confirm.lower() != "y":
             print("Writing canceled")
             return
 
