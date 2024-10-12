@@ -11,7 +11,7 @@ as well as the the quality threshold.
 """
 
 
-file_path = os.path.join(os.getcwd(), 'test.fastq')
+file_path = os.path.join(os.getcwd(), '*.fastq')
 input_fastq = read_fastq_to_dict(file_path)
 
 
