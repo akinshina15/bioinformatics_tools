@@ -1,4 +1,4 @@
-def gc_content(sequence: str) -> float:
+def count_gc(sequence: str) -> float:
     """
     This function calculates the sequence GC content in percent.
     Simply feed the sequence and see how GC-rich it is!
@@ -20,10 +20,10 @@ def ascii_to_phred(phred_str: str) -> list:
 
 
 def calculate_average_quality(enc_quality: str) -> float:
-    """" This function converts Phred quality score into ASCII format
+    """ " This function converts Phred quality score into ASCII format
     and returns its value
     """
-    quality_scores = phred_to_ascii(enc_quality)
+    quality_scores = ascii_to_phred(enc_quality)
 
     if not quality_scores:
         return 0.0
